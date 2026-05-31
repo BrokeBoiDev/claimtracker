@@ -161,6 +161,16 @@ function ProtectedDashboard({ session }) {
     session
   };
 
+  async function signOut() {
+    const { error } = await supabase.auth.signOut();
+    if (error) {
+      showToast(setToast, error.message);
+      return;
+    }
+    setShop(null);
+    setData(emptyData());
+  }
+
   return (
     <div className={collapsed ? "rail-collapsed" : ""}>
       <div className="app">
@@ -198,6 +208,7 @@ function ProtectedDashboard({ session }) {
             <div className="topbar__actions">
               <button className="btn ghost" onClick={() => exportJson(shop, data)}>Export JSON</button>
               <button className="btn primary" onClick={() => setView("repairs")}>Add Repair</button>
+              <button className="btn" onClick={signOut}>Sign Out</button>
             </div>
           </header>
 
