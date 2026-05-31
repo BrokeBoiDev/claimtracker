@@ -854,17 +854,24 @@ function Onboarding({ session, onReady }) {
     onReady();
   }
 
+  async function signOut() {
+    await supabase.auth.signOut();
+  }
+
   return (
     <main className="auth-screen">
       <form className="auth-card" onSubmit={submit}>
         <img src="/assets/logo.png" alt="ClaimTrack" />
         <h1>Set up your shop</h1>
-        <p className="muted">Add the shop details service advisors will use on customer updates and pickup messages.</p>
+        <p className="muted">You are signed in as {session.user.email}. Create a shop to continue, or sign out to use another account.</p>
         {field("Shop name", "name", form, setForm)}
         {field("Phone", "phone", form, setForm)}
         {field("Address", "address", form, setForm)}
         {field("Google review link", "google_review_link", form, setForm)}
-        <button className="btn primary">Create Shop</button>
+        <div className="auth-actions">
+          <button className="btn primary">Create Shop</button>
+          <button className="btn" type="button" onClick={signOut}>Sign Out</button>
+        </div>
         {errorMessage && <p className="error-text">{errorMessage}</p>}
       </form>
     </main>

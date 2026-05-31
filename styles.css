@@ -1222,6 +1222,11 @@ textarea {
   line-height: 1.1;
 }
 
+.auth-actions {
+  display: grid;
+  gap: 10px;
+}
+
 .action-card {
   text-align: left;
   color: inherit;
