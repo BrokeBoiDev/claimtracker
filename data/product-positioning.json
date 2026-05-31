@@ -1,0 +1,19 @@
+{
+  "name": "ClaimTrack",
+  "category": "Customer Repair Status Portal",
+  "audience": [
+    "collision repair shops",
+    "auto body shops",
+    "service advisors",
+    "repair coordinators"
+  ],
+  "core_records": [
+    "repairs",
+    "customers",
+    "parts",
+    "insurance",
+    "photos",
+    "pickup checklists",
+    "review follow-ups"
+  ]
+}
